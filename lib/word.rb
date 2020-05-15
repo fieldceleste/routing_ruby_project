@@ -37,6 +37,10 @@ class Word
     self.term = term
     @@words[self.id] = Word.new({:term => self.term, :id => self.id})
   end
+
+  def delete()
+    @@words.delete(self.id)
+  end
 end
 
 
