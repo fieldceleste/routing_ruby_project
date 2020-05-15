@@ -36,9 +36,9 @@ _No known bugs at this time_
 | System should display a empty array when there is no words| "" | "There are currently no words to display" | √
 | System should return a word to the list when added | "Dog" | "Dog" | √
 | System should be able to save that word to the list | "∙ Dog" | "∙ Dog" | √
-| System should be able to clear all entered words | "Dog","Cat"  | ""|√
-| System should be able to delete the word | "" | ""| √
+| System should be able to clear all entered words | "Dog", "Cat" | ""|√
 | System should be able to compare the same word if entered twice| "Dog, Dog", | "Word 2"| √
+| System should be able to delete the word | "" | ""| √
 | System should be able to update a word | "Dog" => "Cat"  | "Cat"|√
 | System should be able to display  all entered words | "Dog","Cat" | "Dog","Cat"|√
 | System should be able to find the entered word by id | "Word1" | "Dog"|√

@@ -28,6 +28,7 @@ class Word
   def ==(word_to_compare)
     self.term() == word_to_compare.term()
   end
+  
 end
 
 

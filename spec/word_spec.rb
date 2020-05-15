@@ -39,4 +39,11 @@ describe('#Word.all') do
       expect(Word.all).to(eq([]))
     end
   end
+  describe('#==') do
+    it("should compare two words if they are the same") do 
+      word1 = Word.new({:term => "Dog",:id => nil})
+      word1 = Word.new({:term => "Dog",:id => nil})
+      expect(word1).to(eq(word1))
+    end
+  end
 end 
