@@ -83,4 +83,11 @@ describe('#==') do
       expect(Definition.find_by_word(word2.id)).to(eq([definition2]))
     end
   end
+  describe('#word') do
+    it("finds the word a definition belongs to") do
+      definition1 = Definition.new({:term => "a domesticated carnivorous mammal",:id => nil, :word_id => @word.id})
+      definition1.save()
+      expect(definition1.word()).to(eq(@word))
+    end
+  end
 end

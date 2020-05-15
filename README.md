@@ -55,7 +55,7 @@ _No known bugs at this time_
 | System should be able to update a  definition | "a domesticated carnivorous mammal" => "a domestic animal that eats meat and is closely related to the wolves"  | "Defintion1"|√
 | System should be able to delete the definition | "a domesticated carnivorous mammal"| ""| √
 | System should be able to find a definition for a word | "Dog"| "a domesticated carnivorous mammal"| √
-| System should be able to find a word that belongs to word | "a domesticated carnivorous mammal"| "Dog"| √
+| System should be able to find a definition that belongs to word | "a domesticated carnivorous mammal"| "Dog"| √
 
 
 
