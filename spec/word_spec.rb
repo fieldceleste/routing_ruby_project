@@ -79,4 +79,13 @@ describe('#Word.all') do
       expect(Word.all).to(eq([word2]))
     end
   end
+  describe('#Word.all') do 
+    it("returns all entered words") do 
+      word1 = Word.new({:term => "Dog", :id => nil})
+      word1.save()
+      word2 = Word.new({:term => "Cat", :id => nil})
+      word2.save()
+      expect(Word.all).to(eq([word1, word2]))
+    end
+  end
 end 

@@ -41,7 +41,7 @@ _No known bugs at this time_
 | System should be able to find the entered word by id | "Word1" | "Dog"|√
 | System should be able to update a word | "Dog" => "Cat"  | "Cat"|√
 | System should be able to delete the word | "" | ""| √
-| System should be able to display  all entered words | "Dog","Cat" | "Dog","Cat"|√
+| System should be able to display all entered words | "Dog","Cat" | "Dog","Cat"|√
 
 ## Specs for Definition
 
