@@ -20,6 +20,14 @@ class Word
     @@words = {}
     @@total_rows = 0
   end
+
+  def save
+    @@words[self.id] = Word.new({:term => self.term, :id => self.id})
+  end
+
+  def ==(word_to_compare)
+    self.term() == word_to_compare.term()
+  end
 end
 
 
