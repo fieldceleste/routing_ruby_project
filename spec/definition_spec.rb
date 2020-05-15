@@ -72,4 +72,15 @@ describe('#==') do
       expect(Definition.all).to(eq([definition2]))
     end
   end
+  describe('.find_by_word') do
+    it("should be able to find definitions for a word") do
+      word2 = Word.new({:term => "Cat", :id => nil})
+      word2.save()
+      definition1 = Definition.new({:term => "a domesticated carnivorous mammal",:id => nil, :word_id => @word.id})
+      definition1.save()
+      definition2 = Definition.new({:term => "a small domesticated carnivorous mammal with soft fur",:id => nil, :word_id => @word.id})
+      definition2.save()
+      expect(Definition.find_by_word(word2.id)).to(eq([word2]))
+    end
+  end
 end
