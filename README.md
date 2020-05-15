@@ -8,6 +8,7 @@ _This application will allow a user to enter a word, and add it to a list of wor
 
 
 * _Clone repository from Github: https://github.com/fieldceleste/routing_ruby_project.git_
+* _To display page on Heroku please enter this url: https://boiling-temple-30604.herokuapp.com_
 * _Open the repository folder in the terminal_
 * _Install all dependencies_
 * _Make sure to check which Ruby version you are running by typing `ruby -v`_
