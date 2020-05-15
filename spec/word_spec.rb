@@ -17,7 +17,7 @@ describe('#Word.all') do
   end 
   describe('#term') do 
     it("returns the term of a given word") do 
-      word = Word.new({:term =>"Dog"})
+      word = Word.new({:term =>"Dog", :id => nil})
       expect(word.term()).to(eq("Dog"))
     end
   end
