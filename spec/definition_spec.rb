@@ -69,7 +69,7 @@ describe('#==') do
       definition2 = Definition.new({:term => "a small domesticated carnivorous mammal with soft fur",:id => nil, :word_id => @word.id})
       definition2.save()
       definition1.delete()
-      expect(Definition.all).to(eq([definition1]))
+      expect(Definition.all).to(eq([definition2]))
     end
   end
 end

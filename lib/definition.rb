@@ -39,4 +39,8 @@ class Definition
     self.term = term
     self.save
   end
+
+  def delete 
+    @@definitions.delete(self.id)
+  end
 end
