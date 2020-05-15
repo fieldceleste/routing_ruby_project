@@ -65,7 +65,7 @@ describe('#Word.all') do
     it("updates a word by id") do
       word1 = Word.new({:term => "Dog", :id => nil})
       word1.save()
-      word1.update({:term => "Puppies", :id => nil})
+      word1.update("Puppies")
       expect(word1.term).to(eq("Puppies"))
     end
   end

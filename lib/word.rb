@@ -33,6 +33,10 @@ class Word
     @@words[id]
   end
 
+  def update (term)
+    self.term = term
+    @@words[self.id] = Word.new({:term => self.term, :id => self.id})
+  end
 end
 
 
