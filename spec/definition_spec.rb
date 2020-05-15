@@ -38,4 +38,11 @@ describe('#==') do
       expect(Definition.all).to(eq([]))
     end
   end
+  describe('#save') do
+    it("saves a definition") do
+      definition1 = Definition.new({:term => "a domesticated carnivorous mammal",:id => nil, :word_id => @word.id})
+      definition1.save()
+      expect(Definition.all).to(eq([definition1]))
+    end
+  end
 end
