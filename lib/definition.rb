@@ -31,3 +31,4 @@ class Definition
     @@definitions[self.id] = Definition.new({ :term => self.term, :id => self.id, :word_id => self.word_id})
   end
 end
+# ////---!!!!
