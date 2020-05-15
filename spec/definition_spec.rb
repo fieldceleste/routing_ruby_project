@@ -54,4 +54,12 @@ describe('#==') do
       expect(Definition.find(definition1.id)).to(eq(definition1))
     end
   end
+  describe('#update') do
+    it("updates an definition by id") do
+      definition1 = Definition.new({:term => "a domesticated carnivorous mammal",:id => nil, :word_id => @word.id})
+      definition1.save()
+      definition1.update("a domestic animal that eats meat and is closely related to the wolves")
+      expect(definition1.term).to(eq("a domestic animal that eats meat and is closely related to the wolves"))
+    end
+  end
 end
