@@ -34,4 +34,9 @@ class Definition
   def self.find(id)
     @@definitions[id]
   end
+
+  def update(term)
+    self.term = term
+    self.save
+  end
 end
