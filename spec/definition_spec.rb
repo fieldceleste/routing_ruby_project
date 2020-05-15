@@ -28,4 +28,14 @@ describe('#==') do
       expect(Definition.all).to(eq([definition1, definition2]))
     end
   end
+  describe('.clear') do 
+    it("clears all definitions") do
+      definition1 = Definition.new({:term => "a domesticated carnivorous mammal",:id => nil, :word_id => @word.id})
+      definition1.save()
+      definition2 = Definition.new({:term => "a small domesticated carnivorous mammal with soft fur",:id => nil, :word_id => @word.id})
+      definition2.save()
+      Definition.clear()
+      expect(Definition.all).to(eq([]))
+    end
+  end
 end
