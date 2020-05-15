@@ -69,4 +69,14 @@ describe('#Word.all') do
       expect(word1.term).to(eq("Puppies"))
     end
   end
+  describe('#delete') do
+    it("deletes a word by id") do
+      word1 = Word.new({:term => "Dog", :id => nil})
+      word1.save()
+      word2 = Word.new({:term => "Cat", :id => nil})
+      word2.save()
+      word1.delete()
+      expect(Word.all).to(eq([word2]))
+    end
+  end
 end 
