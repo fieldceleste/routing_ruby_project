@@ -62,4 +62,14 @@ describe('#==') do
       expect(definition1.term).to(eq("a domestic animal that eats meat and is closely related to the wolves"))
     end
   end
+  describe('#delete') do
+    it("deletes an definition by id") do
+      definition1 = Definition.new({:term => "a domesticated carnivorous mammal",:id => nil, :word_id => @word.id})
+      definition1.save()
+      definition2 = Definition.new({:term => "a small domesticated carnivorous mammal with soft fur",:id => nil, :word_id => @word.id})
+      definition2.save()
+      definition1.delete()
+      expect(Definition.all).to(eq([definition1]))
+    end
+  end
 end
