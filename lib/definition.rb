@@ -37,7 +37,7 @@ class Definition
 
   def update(term)
     self.term = term
-    self.save
+    @@definitions[self.id] = Definition.new({ :term=> self.term, :id => self.id, :word_id => self.word_id})
   end
 
   def delete 
@@ -45,12 +45,16 @@ class Definition
   end
 
   def self.find_by_word(wrd_id)
-    definitions_a = []
+    definitions = []
     @@definitions.values.each do |definition|
       if definition.word_id == wrd_id
-        definitions_a.push(definition)
+        definitions.push(definition)
       end
     end
-    definitions_a
+    definitions
  end
-end 
+
+ def word
+  Word.find(self.word_id)
+ end 
+end
