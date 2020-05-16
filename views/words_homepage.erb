@@ -2,14 +2,14 @@
 
 <h3>Please Submit a word here:</h3>
 
-<form action="/words_homepage">
+<form action="/words_homepage" method='post'>
   <div class="form-group">
-    <label for="search" >Search!</label>
-    <input id="search" name="search" class="form-control" type="text">
+    <input id="word" name="word_term" class="form-control" type="text">
   </div>
-  <button type="submit" class="btn">Go!</button>
+  <button type="submit" class="btn">Submit</button>
 </form>
-
+<br>
+<br>
 <% if @words.any? %>
   <ul>
     <% @words.each do |word| %>

@@ -1,12 +1,9 @@
-<h4>Word: <%= @word.term %></h4>
-
-
-<h3>Word Definitions</h3>
+<h1>Word: <%= @word.term %></h1>
 
   <% if @word.definitions %>
     <ul>
-    <% @word.defintions.each do |definition| %>
-    <li><a href="/words_homepage/<%= @word.id %>/songs/<%=definition.id %>"><%= definiton.name %></a>
+    <% @word.definitions.each do |definition| %>
+    <li><a href="/words_homepage/<%= @word.id %>/<%=definition.id %>"><%= definition.term %></a>
     </li>
     <% end %>
   </ul>
@@ -16,12 +13,12 @@
 
 <h4>Add a Definiton:</h4>  
 
-<form action="/words_homepage/<%= @album.id %>/definition" method="post">
+<form action="/words_homepage/<%= @word.id %>"method="post">
   <div class="form-group">
-    <label for="defintion_term">Definition-</label>
-    <input id="song_name" name="song_name" class="form-control" type="text">
+ 
+    <input id="definition_term" name="definition_term" class="form-control" type="text">
   </div>
-  <button type="submit" class="btn">Add a definition to this word:</button>
+  <button type="submit" class="btn">Add Definition</button>
 </form>
 
 <%# ///------Returns to Word list-----> %>
