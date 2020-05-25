@@ -2,23 +2,25 @@
 
 <h3>Please Submit a word here:</h3>
 
-<form action="/words_homepage" method='post'>
+
+<form action="/words" method='post'>
   <div class="form-group">
     <input id="word" name="word_term" class="form-control" type="text">
   </div>
   <button type="submit" class="btn">Submit</button>
 </form>
 <br>
-<br>
+<div class = "bullets">
 <% if @words.any? %>
   <ul>
     <% @words.each do |word| %>
-      <li><a href="/words_homepage/<%= word.id %>"><%= word.term %></a></li>
+      <li><a href="/words/<%= word.id %>"><%= word.term %></a></li>
     <% end %>
   </ul>
 <% else %> 
   <p>Please enter in a word in the text box..</p>
 <% end %>
-<a href="/words_homepage/new">Add a new Word!</a>
+</div>
+<a href="/words/new">Add a new Word!</a>
 
 

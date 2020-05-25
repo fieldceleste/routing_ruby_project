@@ -7,84 +7,87 @@ also_reload('lib/**/*.rb')
 
 get('/') do
   @words = Word.all
-  erb(:words_homepage)
+  erb(:words)
 end
 
-get('/words_homepage') do
+get('/words') do
   redirect to ('/')
 end
 
-get('/words_homepage/new') do
+get('/words/new') do
   erb(:new_word)
 end
 
-get('/words_homepage/:id') do
-  @word = Word.find(params[:id].to_i)
-  # @definitions = Definition.find_by_word(@word.id)
-  erb(:word_subpage)
-end
-
-post('/words_homepage') do
+post('/words') do
   term = params[:word_term]
   word = Word.new({:term => term, :id => nil})
   word.save()
-  @words = Word.all()
   redirect to ('/')
 end
 
-get('/words_homepage/:id/edit') do
+get('/words/:id') do
+  @word = Word.find(params[:id].to_i())
+  @definition = Definition.find_by_word(@word.id)
+  erb(:word)
+end
+
+post('/words/:id') do
+  @word = Word.find(params[:id].to_i)
+  term = params[:definition_term]
+  definition = Definition.new({:term => term, :id => nil, :word_id => @word.id})
+  definition.save()
+  @definitions = Definition.find_by_word(@word.id)
+  erb(:word)
+end
+
+get('/words/:id/edit') do
   @word = Word.find(params[:id].to_i())
   erb(:edit_word)
 end
 
-patch('/words_homepage/:id') do
+patch('/words/:id') do
   @word = Word.find(params[:id].to_i())
   @word.update(params[:term])
+  @word.save()
   @words = Word.all
-  erb(:words_homepage)
+  erb(:words)
 end
 
-delete('/words_homepage/:id') do
+delete('/words/:id') do
   @word = Word.find(params[:id].to_i())
   @word.delete()
   @words = Word.all
-  erb(:words_homepage)
+  erb(:words)
 end
 
-# get('/words_homepage/:id') do 
-#   @word = Word.find(params[:id].to_i())
-#   @word.sort()
-#   @words = Words.all
-#   erb(:words_homepage)
-# end
 
 # ///-----Definitions---------------------------------------->
 
-get('/words_homepage/:id/definitions/:definition_id') do
-  # @word = Word.find(params[:id].to_i)
-  @definition = Definition.find(params[:definition_id].to_i)
+get('/words/:id/:definition_id') do
+  @word = Word.find(params[:id].to_i)
+  @definition = Definition.find(params[:definition_id].to_i())
   erb(:definition)
 end 
 
-post('/words_homapge/:id/definitions') do
+post('/words/:id/definitions') do
   @word = Word.find(params[:id].to_i())
-  definition = Definition.new({:term => term, :id => nil, :word_id => @word.id})
+  definition = Definition.new({:term => params[:definition_term], :id => nil, :word_id => @word.id})
   definition.save()
-  erb(:word_subpage)
+  erb(:word)
 end
 
-patch('/words_homepage/:id/definitions/:definition_id') do
-  @word = Word.find(params[:id].to_i)
-  definition = Definition.find(params[:definition_id].to_i)
+patch('/words/:id/:definition_id') do
+  @word = Word.find(params[:id].to_i())
+  definition = Definition.find(params[:definition_id].to_i())
   definition.update(params[:term])
-  @definitions = Definition.find_by_word(@word.id)
-  erb(:word_subpage)
+  definitions = Definition.find_by_word(@word.id)
+  erb(:word)
 end 
 
-delete('/words_homepage/:id/definitions/:definition_id') do 
-  definition = Definition.find_by_word(@word.id)
-  definition.delete()
-  @word = Word.find(params[:id].to_i)
+delete('/words/:id/:definition_id') do 
+  @word = Word.find(params[:id].to_i())
   definition = Definition.find(params[:definition_id].to_i)
-  erb(:word_subpage)
+  definition.delete()
+  definition = Definition.find_by_word(@word.id)
+  erb(:word)
 end  

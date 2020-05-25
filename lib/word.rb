@@ -19,6 +19,7 @@ class Word
   def self.clear
     @@words = {}
     @@total_rows = 0
+    Definition.clear()
   end
 
   def save
@@ -34,7 +35,7 @@ class Word
   end
 
   def update (term)
-    self.term = term
+    @term = term
     @@words[self.id] = Word.new({:term => self.term, :id => self.id})
   end
 

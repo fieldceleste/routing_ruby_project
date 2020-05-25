@@ -19,12 +19,11 @@ class Definition
   end
 
   def self.all
-    @@definitions.values
+    @@definitions.values()
   end
 
   def self.clear
     @@definitions = {}
-    @@total_rows = 0
   end
 
   def save 
@@ -36,8 +35,8 @@ class Definition
   end
 
   def update(term)
-    self.term = term
-    @@definitions[self.id] = Definition.new({ :term=> self.term, :id => self.id, :word_id => self.word_id})
+    @term = term
+    @@definitions[self.id] = Definition.new({:term=> self.term, :id => self.id, :word_id => self.word_id})
   end
 
   def delete 
