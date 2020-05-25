@@ -40,6 +40,7 @@ describe('Updates a definiton path', {:type => :feature}) do
   end
 end
 
+
 describe('delete one definition path', {:type => :feature}) do
   it("deletes one definition") do
     @word = Word.new({:term => "Cat", :id => nil})
