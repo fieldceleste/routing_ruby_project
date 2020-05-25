@@ -27,8 +27,8 @@ describe('create a definiton path', {:type => :feature}) do
   end
 end
 
-describe('Renames a definiton path', {:type => :feature}) do
-  it('Renames an word and then goes to the word page') do
+describe('Updates a definiton path', {:type => :feature}) do
+  it('Updates an word and then goes to the word page') do
     word = Word.new({:term => "Cat", :id => nil})
     word.save()
     visit("/words/#{word.id}")
@@ -37,5 +37,17 @@ describe('Renames a definiton path', {:type => :feature}) do
     fill_in('term', :with => 'Orange')
     click_on('Update word-(Definition will stay the same')
     expect(page).to have_content('Orange')
+  end
+end
+
+describe('delete one definition path', {:type => :feature}) do
+  it("deletes one definition") do
+    @word = Word.new({:term => "Cat", :id => nil})
+    @word.save()
+    @definition1 = Definition.new({:term => "a domesticated carnivorous mammal", :id => nil, :word_id => @word.id})
+    @definition1.save()
+    visit("words/#{@word.id}/#{@definition1.id}")
+    click_on('Remove a Definition')
+    expect(page).to have_no_content('a small domesticated carnivorous mammal with soft fur')
   end
 end
